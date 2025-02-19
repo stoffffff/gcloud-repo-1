@@ -2,7 +2,10 @@ steps:
 - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
   entrypoint: 'docker'
   args: ['build','-t', 'europe-southwest1-docker.pkg.dev/gcp-devops-451014/my-repo-madrid/gcloud-repo-1:$COMMIT_SHA','-f','Dockerfile','.']
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push','europe-southwest1-docker.pkg.dev/gcp-devops-451014/my-repo-madrid/gcloud-repo-1:$COMMIT_SHA']
 options:
   logging : CLOUD_LOGGING_ONLY
 timeout: 1600s
-#test
+
+
